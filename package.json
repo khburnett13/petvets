@@ -1,0 +1,19 @@
+{
+  "name": "petvets",
+  "version": "1.0.0",
+  "description": "Resource for pet financial aid, emergency vets, and pet insurance options",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khburnett13/petvets.git"
+  },
+  "author": "Kimberly Burnett",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/khburnett13/petvets/issues"
+  },
+  "homepage": "https://github.com/khburnett13/petvets#readme"
+}
