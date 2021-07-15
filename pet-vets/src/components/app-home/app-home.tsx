@@ -2,17 +2,22 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'app-home',
-  styleUrl: 'app-home.css',
+  styleUrl: 'app-home.scss',
   shadow: true,
 })
+
 export class AppHome {
   render() {
     return (
       <div class="app-home">
         <p>
-          Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil! Check out our docs on{' '}
-          <a href="https://stenciljs.com">stenciljs.com</a> to get started.
+          Hello and welcome. You can use this resource to find financial support for your pet's medical treatment, 
+          find nearby emergency vets, and find information about pet insurance options.
         </p>
+
+        <stencil-route-link url="/resources/financial">
+          <button>Financial Resources</button>
+        </stencil-route-link>
 
         <stencil-route-link url="/profile/stencil">
           <button>Profile page</button>

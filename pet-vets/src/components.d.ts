@@ -13,6 +13,13 @@ export namespace Components {
         "match": MatchResults;
     }
     interface AppRoot {
+        "pageTitle": string;
+    }
+    interface ResourcesFinancial {
+        /**
+          * 4. Public Property API Inlined decorator, alphabetical order. These are different than "own properties" in that public props are exposed as properties and attributes on the host element. Requires JSDocs for public API documentation.
+         */
+        "match": MatchResults;
     }
 }
 declare global {
@@ -34,10 +41,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLResourcesFinancialElement extends Components.ResourcesFinancial, HTMLStencilElement {
+    }
+    var HTMLResourcesFinancialElement: {
+        prototype: HTMLResourcesFinancialElement;
+        new (): HTMLResourcesFinancialElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "resources-financial": HTMLResourcesFinancialElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,11 +61,23 @@ declare namespace LocalJSX {
         "match"?: MatchResults;
     }
     interface AppRoot {
+        "pageTitle"?: string;
+    }
+    interface ResourcesFinancial {
+        /**
+          * 4. Public Property API Inlined decorator, alphabetical order. These are different than "own properties" in that public props are exposed as properties and attributes on the host element. Requires JSDocs for public API documentation.
+         */
+        "match"?: MatchResults;
+        /**
+          * 5. Events section Inlined decorator, alphabetical order. Requires JSDocs for public API documentation.
+         */
+        "onUpdateTitle"?: (event: CustomEvent<MatchResults>) => void;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "resources-financial": ResourcesFinancial;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +87,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "resources-financial": LocalJSX.ResourcesFinancial & JSXBase.HTMLAttributes<HTMLResourcesFinancialElement>;
         }
     }
 }
