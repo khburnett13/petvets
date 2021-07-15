@@ -6,6 +6,8 @@ header {
   align-items: center;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   padding: 0 15px;
+
+  a { color: white; }
 }
 
 h1 {
@@ -14,4 +16,9 @@ h1 {
   color: #fff;
   padding: 0 12px;
   text-transform: capitalize;
+}
+
+ion-icon.header_icon {
+  height: 2em;
+  width: 2em;
 }

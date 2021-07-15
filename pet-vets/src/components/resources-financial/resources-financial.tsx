@@ -17,6 +17,7 @@ export class ResourcesFinancial {
    * do not have the @Prop() decorator, they will not be exposed
    * publicly on the host element, but only used internally.
    */
+  introFull: HTMLDivElement
 
   /**
    * 2. Reference to host HTML element.
@@ -36,7 +37,8 @@ export class ResourcesFinancial {
    * are exposed as properties and attributes on the host element.
    * Requires JSDocs for public API documentation.
    */
-  @Prop() match: MatchResults;
+  @Prop() match: MatchResults
+  @Prop() showMore = false
 
   /**
    * Prop lifecycle events SHOULD go just behind the Prop they listen to.
@@ -90,6 +92,10 @@ export class ResourcesFinancial {
    * Internal business logic. These methods cannot be
    * called from the host element.
    */
+  handleClick() {
+    this.showMore = !this.showMore
+    this.introFull.classList[this.showMore ? 'add' : 'remove']('financial-support__intro-text__show-more--show')
+  }
 
   /**
    * 10. render() function
@@ -103,34 +109,41 @@ export class ResourcesFinancial {
           Are you having trouble affording your pet? 
           Check this list of national and state resources for pet owners in need. 
           Below is a comprehensive list of pet financial aid related organizations.
+
+          <p class="show-more__trigger" onClick={() => this.handleClick()}>
+            <ion-icon class="show-more-icon" name={this.showMore ? 'remove' : 'add'}></ion-icon>
+            <span>See {this.showMore ? 'less' : 'more'}</span>
+          </p>
         </p>
-        <p>
-          <strong>Note:</strong>&nbsp;
-          If your animal requires emergency veterinary care and you cannot afford treatment, contact groups or veterinary schools that may help. 
-          If you are unsure what qualifies as emergency veterinary care, call your veterinarian and describe the symptoms.
-        </p>
-        <p>
-          It could happen to anyone with a pet. 
-          You've always managed to give your pet the medical care they deserve, but because of unexpected circumstances, you're faced with vet 
-          expenses that are far beyond your ability to afford them.
-          No owner wants a pet to suffer because medical care is out of reach. 
-          Financial aid is out there, and there are steps you can take to cover an emergency vet bill.
-        </p>
-        <p>
-          Please remember that, depending on the severity of your pet's illness or injury, you may still lose your pet even after great expense. 
-          Discuss the prognosis and treatment options with your veterinarian, including whether surgery or treatment would just cause your 
-          companion discomfort without preserving a life of good quality.
-        </p>
-        <p>
-          Please keep in mind that each organization is independent and has their own set of rules and guidelines. 
-          Therefore you will have to investigate each one separately to determine if you qualify for assistance.
-        </p>
+        <div class="financial-support__intro-text__show-more" ref={el => this.introFull = el}>
+          <p>
+            <strong>Note:</strong>&nbsp;
+            If your animal requires emergency veterinary care and you cannot afford treatment, contact groups or veterinary schools that may help. 
+            If you are unsure what qualifies as emergency veterinary care, call your veterinarian and describe the symptoms.
+          </p>
+          <p>
+            It could happen to anyone with a pet. 
+            You've always managed to give your pet the medical care they deserve, but because of unexpected circumstances, you're faced with vet 
+            expenses that are far beyond your ability to afford them.
+            No owner wants a pet to suffer because medical care is out of reach. 
+            Financial aid is out there, and there are steps you can take to cover an emergency vet bill.
+          </p>
+          <p>
+            Please remember that, depending on the severity of your pet's illness or injury, you may still lose your pet even after great expense. 
+            Discuss the prognosis and treatment options with your veterinarian, including whether surgery or treatment would just cause your 
+            companion discomfort without preserving a life of good quality.
+          </p>
+          <p>
+            Please keep in mind that each organization is independent and has their own set of rules and guidelines. 
+            Therefore you will have to investigate each one separately to determine if you qualify for assistance.
+          </p>
+        </div>
       </div>
     )
 
     return (
       <Host>
-        <h2>Financial Resources</h2>
+        <h2>Overview</h2>
         <IntroText />
         <slot></slot>
       </Host>

@@ -1,3 +1,19 @@
 :host {
   display: block;
 }
+
+.show-more__trigger {
+  cursor: pointer;
+
+  span { display: inline-block; }
+}
+
+.financial-support__intro-text__show-more {
+  transform: scaleY(0);    
+  transform-origin: top;
+  transition: transform 0.3s ease;
+
+  &--show { 
+    transform: scaleY(1);
+  }
+}

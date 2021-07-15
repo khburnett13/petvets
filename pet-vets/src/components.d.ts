@@ -20,6 +20,7 @@ export namespace Components {
           * 4. Public Property API Inlined decorator, alphabetical order. These are different than "own properties" in that public props are exposed as properties and attributes on the host element. Requires JSDocs for public API documentation.
          */
         "match": MatchResults;
+        "showMore": boolean;
     }
 }
 declare global {
@@ -72,6 +73,7 @@ declare namespace LocalJSX {
           * 5. Events section Inlined decorator, alphabetical order. Requires JSDocs for public API documentation.
          */
         "onUpdateTitle"?: (event: CustomEvent<MatchResults>) => void;
+        "showMore"?: boolean;
     }
     interface IntrinsicElements {
         "app-home": AppHome;

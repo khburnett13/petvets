@@ -11,7 +11,7 @@ export class AppHome {
     return (
       <div class="app-home">
         <p>
-          Hello and welcome. You can use this resource to find financial support for your pet's medical treatment, 
+          Hello and welcome. You can use this resource to find financial support for your pets' medical treatments, 
           find nearby emergency vets, and find information about pet insurance options.
         </p>
 

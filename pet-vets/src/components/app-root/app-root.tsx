@@ -22,7 +22,9 @@ export class AppRoot {
     return (
       <div>
         <header>
-          <ion-icon class="header_icon" name="paw"></ion-icon>
+          <stencil-route-link url="/">
+            <ion-icon class="header_icon" name="paw"></ion-icon>
+          </stencil-route-link>
           <h1>{this.pageTitle}</h1>
         </header>
 
