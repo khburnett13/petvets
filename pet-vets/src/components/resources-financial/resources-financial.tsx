@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Element, Prop, Event, EventEmitter, Listen } from '@stencil/core';
 import { MatchResults } from '@stencil/router'
 
 @Component({
@@ -78,6 +78,10 @@ export class ResourcesFinancial {
    * starting a listener method with "on".
    * Always use two lines.
    */
+  @Listen('seeMore')
+  seeMoreHandler(show: CustomEvent<boolean>) {
+    this.introFull.classList[show.detail ? 'add' : 'remove']('financial-support__intro-text__show-more--show')
+  }
 
   /**
    * 8. Public methods API
@@ -92,10 +96,6 @@ export class ResourcesFinancial {
    * Internal business logic. These methods cannot be
    * called from the host element.
    */
-  handleClick() {
-    this.showMore = !this.showMore
-    this.introFull.classList[this.showMore ? 'add' : 'remove']('financial-support__intro-text__show-more--show')
-  }
 
   /**
    * 10. render() function
@@ -110,10 +110,7 @@ export class ResourcesFinancial {
           Check this list of national and state resources for pet owners in need. 
           Below is a comprehensive list of pet financial aid related organizations.
 
-          <p class="show-more__trigger" onClick={() => this.handleClick()}>
-            <ion-icon class="show-more-icon" name={this.showMore ? 'remove' : 'add'}></ion-icon>
-            <span>See {this.showMore ? 'less' : 'more'}</span>
-          </p>
+          <see-more></see-more>
         </p>
         <div class="financial-support__intro-text__show-more" ref={el => this.introFull = el}>
           <p>

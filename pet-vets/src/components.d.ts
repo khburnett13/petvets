@@ -22,6 +22,9 @@ export namespace Components {
         "match": MatchResults;
         "showMore": boolean;
     }
+    interface SeeMore {
+        "show": boolean;
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -48,11 +51,18 @@ declare global {
         prototype: HTMLResourcesFinancialElement;
         new (): HTMLResourcesFinancialElement;
     };
+    interface HTMLSeeMoreElement extends Components.SeeMore, HTMLStencilElement {
+    }
+    var HTMLSeeMoreElement: {
+        prototype: HTMLSeeMoreElement;
+        new (): HTMLSeeMoreElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "resources-financial": HTMLResourcesFinancialElement;
+        "see-more": HTMLSeeMoreElement;
     }
 }
 declare namespace LocalJSX {
@@ -75,11 +85,16 @@ declare namespace LocalJSX {
         "onUpdateTitle"?: (event: CustomEvent<MatchResults>) => void;
         "showMore"?: boolean;
     }
+    interface SeeMore {
+        "onSeeMore"?: (event: CustomEvent<boolean>) => void;
+        "show"?: boolean;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
         "resources-financial": ResourcesFinancial;
+        "see-more": SeeMore;
     }
 }
 export { LocalJSX as JSX };
@@ -90,6 +105,7 @@ declare module "@stencil/core" {
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "resources-financial": LocalJSX.ResourcesFinancial & JSXBase.HTMLAttributes<HTMLResourcesFinancialElement>;
+            "see-more": LocalJSX.SeeMore & JSXBase.HTMLAttributes<HTMLSeeMoreElement>;
         }
     }
 }

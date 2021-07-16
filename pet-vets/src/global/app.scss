@@ -8,6 +8,21 @@
   Any global CSS variables should also be applied here.
 */
 
+/* Palette */
+$liver: #735751;
+$cinereous: #A78A7F;
+$almond: #E7D7C1;
+$dpChestnut: #BF4342;
+$dkRed: #8C1C13;
+
+:root {
+  --primary: #{$liver};
+  --secondary: #{$cinereous};
+  --accent: #{$dpChestnut};
+  --almond: #{$almond};
+  --warn: #{$dkRed};
+}
+
 body {
   margin: 0px;
   padding: 0px;

@@ -11,18 +11,22 @@ export class AppRoot {
 
   @Listen('updateTitle')
   updateTitleHandler(event: CustomEvent<MatchResults>) {
-    this.pageTitle = this.getTitle(event.detail.params.title)
+    this.setTitle(event.detail.params.title)
   }
 
-  getTitle(loc?: string) {
+  getTitle(loc?: string): string {
     return `${loc || 'Pet'} Resources`
+  }
+
+  setTitle(loc?: string): void {
+    this.pageTitle = this.getTitle(loc)
   }
 
   render() {
     return (
       <div>
         <header>
-          <stencil-route-link url="/">
+          <stencil-route-link url="/" onClick={() => this.setTitle()}>
             <ion-icon class="header_icon" name="paw"></ion-icon>
           </stencil-route-link>
           <h1>{this.pageTitle}</h1>
