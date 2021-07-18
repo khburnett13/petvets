@@ -142,7 +142,6 @@ export class ResourcesFinancial {
       <Host>
         <h2>Overview</h2>
         <IntroText />
-        <slot></slot>
       </Host>
     );
   }
