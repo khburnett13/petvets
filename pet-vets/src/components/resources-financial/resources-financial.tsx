@@ -6,6 +6,7 @@ import { MatchResults } from '@stencil/router'
   styleUrl: 'resources-financial.scss',
   shadow: true,
 })
+
 export class ResourcesFinancial {
   
   /**
@@ -142,6 +143,7 @@ export class ResourcesFinancial {
       <Host>
         <h2>Overview</h2>
         <IntroText />
+        <org-list></org-list>
       </Host>
     );
   }

@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  // position: relative;
+}
+
+.filter_organizations {
+  background-color: var(--accent);
+  border: 2px solid;
+  border-right: none;
+  color: #FFF;
+  cursor: pointer;
+  padding: 20px 10px 20px 15px;
+  position: fixed;
+  right: 0;
+
+  &:hover { 
+    opacity: .9;
+  }
+}

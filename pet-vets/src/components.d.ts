@@ -15,6 +15,8 @@ export namespace Components {
     interface AppRoot {
         "pageTitle": string;
     }
+    interface OrgList {
+    }
     interface ResourcesFinancial {
         /**
           * 4. Public Property API Inlined decorator, alphabetical order. These are different than "own properties" in that public props are exposed as properties and attributes on the host element. Requires JSDocs for public API documentation.
@@ -24,6 +26,8 @@ export namespace Components {
     }
     interface SeeMore {
         "show": boolean;
+    }
+    interface SlidePanel {
     }
 }
 declare global {
@@ -45,6 +49,12 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLOrgListElement extends Components.OrgList, HTMLStencilElement {
+    }
+    var HTMLOrgListElement: {
+        prototype: HTMLOrgListElement;
+        new (): HTMLOrgListElement;
+    };
     interface HTMLResourcesFinancialElement extends Components.ResourcesFinancial, HTMLStencilElement {
     }
     var HTMLResourcesFinancialElement: {
@@ -57,12 +67,20 @@ declare global {
         prototype: HTMLSeeMoreElement;
         new (): HTMLSeeMoreElement;
     };
+    interface HTMLSlidePanelElement extends Components.SlidePanel, HTMLStencilElement {
+    }
+    var HTMLSlidePanelElement: {
+        prototype: HTMLSlidePanelElement;
+        new (): HTMLSlidePanelElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "org-list": HTMLOrgListElement;
         "resources-financial": HTMLResourcesFinancialElement;
         "see-more": HTMLSeeMoreElement;
+        "slide-panel": HTMLSlidePanelElement;
     }
 }
 declare namespace LocalJSX {
@@ -73,6 +91,8 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
         "pageTitle"?: string;
+    }
+    interface OrgList {
     }
     interface ResourcesFinancial {
         /**
@@ -89,12 +109,16 @@ declare namespace LocalJSX {
         "onSeeMore"?: (event: CustomEvent<boolean>) => void;
         "show"?: boolean;
     }
+    interface SlidePanel {
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "org-list": OrgList;
         "resources-financial": ResourcesFinancial;
         "see-more": SeeMore;
+        "slide-panel": SlidePanel;
     }
 }
 export { LocalJSX as JSX };
@@ -104,8 +128,10 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "org-list": LocalJSX.OrgList & JSXBase.HTMLAttributes<HTMLOrgListElement>;
             "resources-financial": LocalJSX.ResourcesFinancial & JSXBase.HTMLAttributes<HTMLResourcesFinancialElement>;
             "see-more": LocalJSX.SeeMore & JSXBase.HTMLAttributes<HTMLSeeMoreElement>;
+            "slide-panel": LocalJSX.SlidePanel & JSXBase.HTMLAttributes<HTMLSlidePanelElement>;
         }
     }
 }

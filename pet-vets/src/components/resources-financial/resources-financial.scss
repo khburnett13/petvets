@@ -3,11 +3,13 @@
 }
 
 .financial-support__intro-text__show-more {
+  height: 0;
   transform: scaleY(0);    
   transform-origin: top;
   transition: transform 0.3s ease;
 
   &--show { 
+    height: 100%;
     transform: scaleY(1);
   }
 }
