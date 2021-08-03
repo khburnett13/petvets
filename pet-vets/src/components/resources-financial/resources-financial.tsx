@@ -142,8 +142,10 @@ export class ResourcesFinancial {
     return (
       <Host>
         <h2>Overview</h2>
+        <slide-panel></slide-panel>
         <IntroText />
         <org-list></org-list>
+        <slide-panel></slide-panel>
       </Host>
     );
   }

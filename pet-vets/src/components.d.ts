@@ -28,6 +28,7 @@ export namespace Components {
         "show": boolean;
     }
     interface SlidePanel {
+        "slideFrom": string;
     }
 }
 declare global {
@@ -110,6 +111,7 @@ declare namespace LocalJSX {
         "show"?: boolean;
     }
     interface SlidePanel {
+        "slideFrom"?: string;
     }
     interface IntrinsicElements {
         "app-home": AppHome;

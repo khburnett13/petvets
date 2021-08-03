@@ -22,7 +22,6 @@ export class OrgList {
     return (
       <Host>
         <h2>Helpful Organizations</h2>
-        <ion-icon class="filter_organizations" name="funnel"></ion-icon>
         <div>
           {this.data.map(org =>
             <div>
